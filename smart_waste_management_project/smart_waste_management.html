@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Smart Waste Management</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /* Background image */
+            background-image: 
+                /* linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), */
+                url("smart-waste-management.jpg");
+            background-size: cover;
+            background-position: center;
+
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 400px;
+            padding: 25px;
+            display:flex ;
+            flex-direction: column;
+            gap:10px;
+            border-radius: 12px;
+            background-color:rgb(141, 189, 141);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c6e49;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 8px;
+            background-color: #b5e487;
+            color: #003049;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color:rgb(6, 197, 6);
+        }
+
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #1b4332;
+        }
+        button:focus{
+            border:2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>AI Smart Waste Management System</h2>
+
+    <label>Previous Bin Fill Level (%)</label>
+    <input type="number" id="prev">
+
+    <label>People Count</label>
+    <input type="number" id="people">
+
+    <label>Temperature (°C)</label>
+    <input type="number" id="temp">
+
+    <button onclick="sendData()">Predict Bin Fill Level</button>
+
+    <p id="output"></p>
+</div>
+
+<script>
+function sendData() {
+    let prev = document.getElementById("prev").value;
+    let people = document.getElementById("people").value;
+    let temp = document.getElementById("temp").value;
+
+    google.colab.kernel.invokeFunction(
+        'predict',
+        [prev, people, temp],
+        {}
+    );
+}
+</script>
+
+</body>
+</html>
+
