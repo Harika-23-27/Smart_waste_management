@@ -20,6 +20,10 @@ The Smart Waste Management System is an AI and IoT-based project that helps impr
 * Microsoft Azure
 * IoT Concepts
 
+## Deployment link
+https://smartwastemanagement-yochi4etkgaxkhrfktqstg.streamlit.app/
+
+
 ## How to Run
 
 1. Clone the repository.
